@@ -1,0 +1,45 @@
+# syntax=docker/dockerfile:1
+
+# ---- Base ----------------------------------------------------------
+FROM python:3.11-slim AS base
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+# System deps (add git if you vendor private deps)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential curl && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# ---- Dependencies layer -------------------------------------------
+# Copy only dependency manifests first for better build caching
+COPY requirements.txt* pyproject.toml* /app/
+
+# Install: prefer requirements.txt; otherwise build from project metadata
+RUN pip install --upgrade pip && \
+    if [ -f "requirements.txt" ]; then \
+        pip install -r requirements.txt; \
+    else \
+        pip install "fastapi>=0.111" "uvicorn[standard]>=0.30" "httpx>=0.27" ; \
+        pip install . || true; \
+    fi
+
+# ---- App layer -----------------------------------------------------
+COPY . /app
+
+# Non-root runtime user
+RUN useradd -u 10001 -m appuser
+USER appuser
+
+EXPOSE 8000
+
+# Healthcheck (container-level)
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+  CMD curl -sf http://localhost:8000/v0/live || exit 1
+
+# Entrypoint: start API
+# APP_MODULE can be overridden at runtime if needed
+ENV APP_MODULE=api.app:app
+CMD ["sh", "-lc", "uvicorn ${APP_MODULE} --host 0.0.0.0 --port 8000"]

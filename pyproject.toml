@@ -1,0 +1,2 @@
+[tool.setuptools.packages.find]
+include = ["api*", "cli*", "core*", "project_stack*", "validators*", "med_stack*", "boards*", "exports*"]

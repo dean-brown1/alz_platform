@@ -1,0 +1,8 @@
+﻿{
+  "id": "patient-1234",
+  "notes": "Memory loss, MMSE ~ 22. PET: parietal hypometabolism.",
+  "mri": {"hippocampal_atrophy": "0.6"},
+  "omics": {"apoe": "E3/E4"},
+  "pharma": {"medications": ["donepezil"]},
+  "environment": {"lifestyle": "Sedentary"}
+}

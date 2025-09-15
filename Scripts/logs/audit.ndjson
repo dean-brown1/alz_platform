@@ -1,0 +1,9 @@
+{"when":"2025-09-05T12:44:45.100375+00:00","who":"project_stack","action":"ingest_start","subject":"bench-local","details":null,"ts":"2025-09-05T12:44:45.100406Z"}
+{"when":"2025-09-05T12:44:45.101327+00:00","who":"project_stack","action":"ingest_done","subject":"bench-local","details":null,"ts":"2025-09-05T12:44:45.101349Z"}
+{"when":"2025-09-05T12:44:45.102218+00:00","who":"project_stack","action":"normalize","subject":"bench-local","details":null,"ts":"2025-09-05T12:44:45.102242Z"}
+{"when":"2025-09-05T12:47:08.021810+00:00","who":"project_stack","action":"ingest_start","subject":"bench-local","details":null,"ts":"2025-09-05T12:47:08.021838Z"}
+{"when":"2025-09-05T12:47:08.022514+00:00","who":"project_stack","action":"ingest_done","subject":"bench-local","details":null,"ts":"2025-09-05T12:47:08.022533Z"}
+{"when":"2025-09-05T12:47:08.023296+00:00","who":"project_stack","action":"normalize","subject":"bench-local","details":null,"ts":"2025-09-05T12:47:08.023316Z"}
+{"when":"2025-09-05T12:55:57.620559+00:00","who":"project_stack","action":"ingest_start","subject":"bench-prof","details":null,"ts":"2025-09-05T12:55:57.620588Z"}
+{"when":"2025-09-05T12:55:57.621431+00:00","who":"project_stack","action":"ingest_done","subject":"bench-prof","details":null,"ts":"2025-09-05T12:55:57.621462Z"}
+{"when":"2025-09-05T12:55:57.622302+00:00","who":"project_stack","action":"normalize","subject":"bench-prof","details":null,"ts":"2025-09-05T12:55:57.622334Z"}
