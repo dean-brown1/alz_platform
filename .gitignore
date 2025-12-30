@@ -21,6 +21,7 @@ env/
 *.swo
 
 # Environment variables
+.env*
 .env
 .env.local
 

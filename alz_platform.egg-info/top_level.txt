@@ -1,6 +1,0 @@
-api
-cli
-core
-med_stack
-project_stack
-validators
